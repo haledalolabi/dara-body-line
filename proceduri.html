@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Процедури за извайване на тяло | DARA Body Line</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-mZ9bV07L0lYw5C5fH+0D7qPt3nJ1DhVvGZ9KNPa0kY4j5Kz6T8O7bI5VQUt7x4b+3RQ36fFFdI2n+H3HfIg/ZA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    :root {
+      --accent: #D12564;
+      --light-bg: #f7f7f7;
+      --font-heading: 'Montserrat', sans-serif;
+      --font-body: 'Roboto', sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: var(--font-body); color: #333; line-height: 1.6; }
+    a { text-decoration: none; color: inherit; }
+
+.hero-procedures {
+    display: flex
+;
+    align-items: center;
+    justify-content: center;
+    height: 50vh;
+    text-align: center;
+    position: relative;
+    padding: 2rem;
+    overflow: hidden;
+}
+.hero-procedures::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url(images/hero-image1.jpg) center / cover no-repeat;
+    background-position: 0% 60%;
+    z-index: -2;
+}
+.hero-procedures::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: -1;
+}
+    .hero-procedures .hero-content {
+      color: #fff; max-width: 90%; padding: 1rem;
+    }
+    .hero-procedures h1 {
+      font-family: var(--font-heading); font-size: 3rem; margin-bottom: 0.5rem;
+    }
+    .hero-procedures .decorative-line {
+      width: 80px; height: 4px; background: var(--accent); margin: 0.5rem auto;
+    }
+    .hero-procedures p {
+      font-size: 1.25rem; margin-bottom: 1.5rem;
+    }
+    .hero-procedures .cta-button {
+      display: inline-block;
+      background: var(--accent); color: #fff;
+      padding: 0.75rem 1.5rem; border-radius: 30px;
+      font-weight: 600;
+      transition: background 0.3s;
+    }
+    .hero-procedures .cta-button:hover { background: #a81b4f; }
+
+    /* PROCEDURES GRID */
+    #procedures { padding: 4rem 1rem; background: var(--light-bg); text-align: center; }
+    #procedures h2 { font-family: var(--font-heading); font-size: 2.5rem; margin-bottom: 0.5rem; }
+    #procedures .section-subtitle { color: #666; margin-bottom: 2rem; }
+    .procedure-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); gap: 2rem; max-width: 1200px; margin: 0 auto;
+    }
+    .procedure-card {
+      background: #fff; border-radius: 10px; overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      transition: transform 0.3s;
+    }
+    .procedure-card:hover { transform: translateY(-5px); }
+    .procedure-card img { width: 100%; height: 180px; object-fit: cover; }
+    .procedure-card .content { padding: 1.5rem; text-align: left; }
+    .procedure-card h3 { font-family: var(--font-heading); margin-bottom: 0.75rem; }
+    .procedure-card p { font-size: 0.95rem; margin-bottom: 1rem; color: #555; }
+    .procedure-card .cta-button {
+      background: var(--accent); color: #fff; padding: 0.5rem 1rem;
+      border-radius: 30px; font-size: 0.9rem; font-weight: 600;
+      transition: background 0.3s;
+    }
+    .procedure-card .cta-button:hover { background: #a81b4f; }
+
+    /* EXPECTATIONS */
+    .expectations {
+      display: flex; flex-wrap: wrap; align-items: center;
+      max-width: 1000px; margin: 4rem auto; gap: 2rem; padding: 0 1rem;
+    }
+    .expectations .text { flex: 1; }
+    .expectations h2 { font-family: var(--font-heading); font-size: 2rem; margin-bottom: 1rem; }
+    .expectations ul { list-style: none; }
+    .expectations li {
+      margin-bottom: 0.75rem; font-size: 1rem;
+    }
+    .expectations li i { color: var(--accent); margin-right: 0.5rem; }
+    .expectations .media { flex: 1; text-align: center; }
+    .expectations .media img { max-width: 100%; border-radius: 10px; }
+
+    /* TESTIMONIALS */
+    .testimonials {
+      background: #fff; padding: 4rem 1rem; text-align: center;
+    }
+    .testimonials h2 { font-family: var(--font-heading); font-size: 2.25rem; margin-bottom: 0.5rem; }
+    .testimonials .logos { margin: 1rem 0; }
+    .testimonials .logos img { height: 40px; margin: 0 0.5rem; opacity: 0.7; vertical-align: middle; }
+    .testimonial-list {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
+      gap: 2rem; max-width: 1000px; margin: 2rem auto 0;
+    }
+    .testimonial {
+      background: var(--light-bg); border-radius: 10px; padding: 1.5rem;
+      position: relative; box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      font-size: 0.95rem;
+    }
+    .testimonial .stars {
+      color: #FFC107; margin-bottom: 0.5rem;
+    }
+    .testimonial p { margin-bottom: 1rem; }
+    .testimonial .author { font-weight: 600; color: #333; }
+
+    /* FINAL CTA */
+    .final-cta {
+      position: relative; background: url('images/cta-body.jpg') center/cover no-repeat;
+      padding: 6rem 1rem; text-align: center; color: #fff;
+    }
+    .final-cta::before {
+      content: ""; position: absolute; top:0;left:0;width:100%;height:100%;
+      background: rgba(0,0,0,0.6); z-index: -1;
+    }
+    .final-cta h2 { font-family: var(--font-heading); font-size: 2.5rem; margin-bottom: 0.5rem; }
+    .final-cta p { font-size: 1.1rem; margin-bottom: 1.5rem; }
+    .final-cta .cta-button { background: var(--accent); color: #fff;
+      padding: 0.75rem 1.5rem; border-radius: 30px; font-weight: 600;
+      transition: background 0.3s;
+    }
+    .final-cta .cta-button:hover { background: #a81b4f; }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .expectations { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <section class="hero-procedures">
+    <div class="hero-content">
+      <h1>Процедури за извайване на тяло</h1>
+      <div class="decorative-line"></div>
+      <p>4 високоефективни терапии, които комбинират технологии и реални резултати</p>
+      <a href="#procedures" class="cta-button">Запази час</a>
+    </div>
+  </section>
+
+  <!-- PROCEDURES -->
+  <section id="procedures">
+    <h2>Нашите терапии</h2>
+    <p class="section-subtitle">Подбрани решения с видими резултати още от първите сесии.</p>
+    <div class="procedure-grid">
+      <div class="procedure-card">
+        <img src="images/ems.jpg" alt="EMS Sculpt">
+        <div class="content">
+          <h3>EMS Sculpt</h3>
+          <p>Изгражда мускули и изгаря мазнини чрез 20 000 дълбоки контракции за 30 минути. Без усилие – само резултат.</p>
+          <a href="/procedures/ems-sculpt" class="cta-button">Виж повече</a>
+        </div>
+      </div>
+      <div class="procedure-card">
+        <img src="images/cryo.jpg" alt="Криолиполиза">
+        <div class="content">
+          <h3>Криолиполиза</h3>
+          <p>Неинвазивна алтернатива на липосукцията – унищожава мастните клетки чрез контролирано замразяване.</p>
+          <a href="/procedures/cryo" class="cta-button">Виж повече</a>
+        </div>
+      </div>
+      <div class="procedure-card">
+        <img src="images/cavitation-rf.jpg" alt="Кавитация + RF лифтинг">
+        <div class="content">
+          <h3>Кавитация + RF лифтинг</h3>
+          <p>Двойна сила: разрушаване на мастните клетки с ултразвук и стягане на кожата чрез радиочестота.</p>
+          <a href="/procedures/cavitation-rf" class="cta-button">Виж повече</a>
+        </div>
+      </div>
+      <div class="procedure-card">
+        <img src="images/rollshaper.jpg" alt="Roll Shaper">
+        <div class="content">
+          <h3>Roll Shaper</h3>
+          <p>Активира лимфата, редуцира целулит, подобрява съня и освобождава хормони на щастието.</p>
+          <a href="/procedures/roll-shaper" class="cta-button">Виж повече</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPECTATIONS -->
+  <section class="expectations">
+    <div class="text">
+      <h2>Какво да очакваш от нашите терапии</h2>
+      <ul>
+        <li><i class="fa-solid fa-circle-check"></i>Намаляване на мазнини и целулит</li>
+        <li><i class="fa-solid fa-circle-check"></i>Стягане и изглаждане на кожата</li>
+        <li><i class="fa-solid fa-circle-check"></i>Подобрена циркулация и тонус</li>
+        <li><i class="fa-solid fa-circle-check"></i>Без болка, без възстановителен период</li>
+      </ul>
+    </div>
+    <div class="media">
+      <img src="images/expectations.jpg" alt="Какво да очакваш">
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials">
+    <h2>Отзиви и доверие</h2>
+    <div class="logos">
+      <img src="images/google-logo.png" alt="Google Reviews">
+      <img src="images/trustpilot-logo.png" alt="Trustpilot">
+    </div>
+    <div class="testimonial-list">
+      <div class="testimonial">
+        <div class="stars">★★★★★</div>
+        <p>„След първата сесия на EMS Sculpt забелязах видим лифтинг и стягане. Невероятно!“</p>
+        <div class="author">– Мария П.</div>
+      </div>
+      <div class="testimonial">
+        <div class="stars">★★★★☆</div>
+        <p>„Криолиполизата беше безболезнена и резултатите са впечатляващи след месец.“</p>
+        <div class="author">– Антония К.</div>
+      </div>
+      <div class="testimonial">
+        <div class="stars">★★★★★</div>
+        <p>„Комбинирах кавитация с RF и кожата ми е по-гладка от всякога!“</p>
+        <div class="author">– Светлана Д.</div>
+      </div>
+      <div class="testimonial">
+        <div class="stars">★★★★★</div>
+        <p>„Roll Shaper ме накара да се чувствам по-леки и енергични. Препоръчвам!“</p>
+        <div class="author">– Иванка Т.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="final-cta">
+    <h2>Тялото, което искаш, е на една процедура разстояние</h2>
+    <p>Запази своя час и започни промяната още днес.</p>
+    <a href="#procedures" class="cta-button">Резервирай сега</a>
+  </section>
+
+</body>
+</html>
