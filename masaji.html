@@ -1,0 +1,1243 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Масажи</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" 
+    integrity="sha512-mZ9bV07L0lYw5C5fH+0D7qPt3nJ1DhVvGZ9KNPa0kY4j5Kz6T8O7bI5VQUt7x4b+3RQ36fFFdI2n+H3HfIg/ZA==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.7.2/css/all.css">
+  <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.7.2/css/sharp-solid.css">
+  <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.7.2/css/sharp-regular.css">
+  <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.7.2/css/sharp-light.css">
+  <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.7.2/css/duotone.css"/>
+  <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.7.2/css/brands.css"/>
+  <!-- Допълнителен CSS за всички секции -->
+  <style>
+    /* HERO секция */
+    .hero-massages {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 60vh;
+      text-align: center;
+      position: relative;
+      padding: 2rem;
+      padding-top: 18vh;
+      overflow: hidden;
+    }
+    .hero-massages::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('images/hero-massages.jpg') center/cover no-repeat;
+      background-position: 0% 65%;
+      filter: blur(3px);
+      transform: scale(1.05);
+      z-index: -2;
+    }
+    .hero-massages::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      z-index: -1;
+    }
+    .hero-massages .hero-content {
+      position: relative;
+      z-index: 1;
+      color: #fff;
+    }
+    .hero-massages .hero-content h1 {
+      font-size: 48px;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    .hero-massages .decorative-line {
+      width: 100px;
+      height: 4px;
+      background-color: var(--accent, #d12564);
+      margin: 0.5rem auto 1rem;
+    }
+    .hero-massages .hero-content p {
+      font-size: 18px;
+      margin-bottom: 1.5rem;
+    }
+    .hero-massages .cta-group {
+      display: inline-flex;
+      gap: 1rem;
+    }
+    
+    /* Секция с категории масажи */
+    .massage-categories {
+      padding: 4rem 2rem;
+      background-color: var(--light);
+      text-align: center;
+    }
+    .massage-categories h2 {
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+    }
+    .massage-categories p.section-subtitle {
+      font-size: 18px;
+      color: #666;
+      margin-bottom: 2.5rem;
+    }
+    .categories-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(300px, 1fr));
+      gap: 2rem;
+      margin: 0 auto;
+    }
+    .category-card {
+      background-color: #fafafa;
+      border: 1px solid #eee;
+      border-radius: 10px;
+      padding: 2rem 1rem;
+      transition: transform 0.3s, box-shadow 0.3s;
+      position: relative;
+    }
+    .category-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    }
+    .category-icon {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1rem;
+      font-size: 45px;
+      color: var(--accent);
+      transition: transform 0.3s;
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+    .category-card:hover .category-icon {
+      animation: pulse 1s infinite;
+    }
+    .category-card h3 {
+      font-size: 22px;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    .category-card p {
+      font-size: 16px;
+      margin-bottom: 1rem;
+      color: #555;
+    }
+    .category-card .cta-button {
+      display: inline-block;
+      text-decoration: none;
+      padding: 10px 20px;
+      background-color: var(--accent);
+      color: #fff;
+      border-radius: 30px;
+      font-weight: 600;
+      transition: background-color 0.3s;
+    }
+    .category-card .cta-button:hover {
+      background-color: #a81b4f;
+    }
+    
+    /* Секция: Популярни масажи / Нашите бестселъри */
+    .popular-massages {
+      padding: 4rem 2rem;
+      background-color: #f9f9f9;
+      text-align: center;
+    }
+    .popular-massages h2 {
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    .popular-massages p.section-subtitle {
+      font-size: 18px;
+      color: #777;
+      margin-bottom: 2.5rem;
+    }
+    .massages-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin: 0 auto;
+    }
+    .massage-card {
+      background-color: var(--light);
+      border: 1px solid #eee;
+      border-radius: 10px;
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .massage-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    }
+    .massage-card img {
+      width: 100%;
+      height: 15em;
+      object-fit: cover;
+    }
+    .massage-content {
+      padding: 1.5rem;
+      text-align: left;
+      padding-top: 0.5rem;
+    }
+    .massage-content h3 {
+      font-size: 22px;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    .massage-content p {
+      font-size: 16px;
+      margin-bottom: 1rem;
+      color: #555;
+    }
+    .massage-content p.time {
+      font-weight: 600;
+    }
+    .massage-content .cta-button {
+      display: inline-block;
+      text-decoration: none;
+      padding: 10px 20px;
+      background-color: var(--accent);
+      color: #fff;
+      border-radius: 30px;
+      font-weight: 600;
+      transition: background-color 0.3s;
+    }
+    .massage-content .cta-button:hover {
+      background-color: #a81b4f;
+    }
+    .popular-massages .bottom-note {
+      font-size: 14px;
+      color: #777;
+      margin-top: 2rem;
+    }
+    
+    /* Секция: Релаксиращи масажи (2 колони) */
+    .relaxing-massages {
+      padding: 4rem 2rem;
+      background-color: #fff;
+    }
+    .relaxing-container {
+      display: flex;
+      max-width: 1200px;
+      margin: 0 auto;
+      align-items: center;
+    }
+    .relaxing-image,
+    .relaxing-content {
+      flex: 1;
+      padding: 1rem;
+    }
+    .relaxing-image img {
+      width: 100%;
+      height: auto;
+      max-height: 40em;
+      border-radius: 10px;
+      object-fit: cover;
+    }
+    .relaxing-content h2 {
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: var(--dark);
+    }
+    .relaxing-content .intro {
+      font-size: 18px;
+      margin-bottom: 1.5rem;
+      color: #555;
+    }
+    .massage-list {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 2rem;
+    }
+    .massage-list li {
+      font-size: 16px;
+      margin-bottom: 1rem;
+      color: #555;
+      line-height: 1.5;
+    }
+    .massage-list li i {
+      color: var(--accent);
+      margin-right: 0.5rem;
+    }
+    .massage-list li strong {
+      color: var(--dark);
+    }
+    .relaxing-content .cta-button {
+      display: inline-block;
+      text-decoration: none;
+      padding: 12px 24px;
+      background-color: var(--accent);
+      color: #fff;
+      border-radius: 30px;
+      font-weight: 600;
+      transition: background-color 0.3s;
+    }
+    .relaxing-content .cta-button:hover {
+      background-color: #a81b4f;
+    }
+    @media (max-width: 768px) {
+      .relaxing-container {
+        flex-direction: column;
+      }
+      .relaxing-image {
+        margin-bottom: 2rem;
+      }
+    }
+    
+    /* Секция: Антицелулитни масажи */
+    .anti-cellulite-massages {
+      padding: 4rem 2rem;
+      background-color: #f9f9f9;
+      text-align: center;
+    }
+    .anti-cellulite-massages h2 {
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: var(--dark);
+    }
+    .anti-cellulite-massages p.section-subtitle,
+    .healing-content p.section-subtitle {
+      font-size: 18px;
+      color: #777;
+      margin-bottom: 2.5rem;
+    }
+    .anti-cellulite-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(250px, 1fr));
+      gap: 2rem;
+      margin: 0 auto 2rem;
+    }
+    .anti-cellulite-card {
+      background-color: #fff;
+      border: 1px solid #eee;
+      border-radius: 10px;
+      padding: 2rem 1rem;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .anti-cellulite-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    }
+    .anti-cellulite-card .card-icon {
+      font-size: 40px;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+    .anti-cellulite-card h3 {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: var(--dark);
+    }
+    .anti-cellulite-card p {
+      font-size: 16px;
+      margin-bottom: 1rem;
+      color: #555;
+    }
+    .anti-cellulite-massages .cta-button {
+      display: inline-block;
+      text-decoration: none;
+      padding: 12px 24px;
+      background-color: var(--accent);
+      color: #fff;
+      border-radius: 30px;
+      font-weight: 600;
+      transition: background-color 0.3s;
+    }
+    .anti-cellulite-massages .cta-button:hover {
+      background-color: #a81b4f;
+    }
+    @media (max-width: 768px) {
+      .anti-cellulite-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    /* Секция: Лимфодренажни масажи (Split Layout) */
+    .lymph-massages {
+      padding: 4rem 2rem;
+      background-color: var(--light);
+    }
+    .lymph-container {
+      display: flex;
+      max-width: 1200px;
+      margin: 0 auto;
+      align-items: center;
+    }
+    .lymph-image {
+      flex: 1;
+      padding: 1rem;
+    }
+    .lymph-image img {
+      width: 100%;
+      border-radius: 10px;
+      object-fit: cover;
+    }
+    .lymph-content {
+      flex: 1;
+      padding: 1rem;
+      text-align: left;
+    }
+    .lymph-content h2,
+    .healing-content h2 {
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: var(--dark);
+    }
+    .healing-content h2 {
+      color: var(--light);
+    }
+    /* Lighter healing subtitle */
+    .healing-content p.section-subtitle {
+      font-size: 18px;
+      color: #ccc;
+      margin-bottom: 2.5rem;
+    }
+    .lymph-content p.section-subtitle {
+      font-size: 18px;
+      color: #555;
+      margin-bottom: 2rem;
+    }
+    .lymph-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .lymph-card {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      background-color: #fafafa;
+      padding: 1rem;
+      border: 1px solid #eee;
+      border-radius: 10px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .lymph-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+    }
+    .lymph-card-icon {
+      flex-shrink: 0;
+      width: 50px;
+      height: 50px;
+      background-color: #fff;
+      border: 1px solid #eee;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      color: var(--accent);
+    }
+    .lymph-card-content {
+      font-size: 16px;
+      color: #555;
+    }
+    .lymph-card-content strong {
+      display: block;
+      font-size: 18px;
+      color: var(--dark);
+      margin-bottom: 0.3rem;
+    }
+    .lymph-card-content span.time {
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+      display: block;
+    }
+    .lymph-card-content p {
+      margin: 0;
+    }
+    .lymph-content .cta-button {
+      display: inline-block;
+      text-decoration: none;
+      padding: 12px 24px;
+      background-color: var(--accent);
+      color: #fff;
+      border-radius: 30px;
+      font-weight: 600;
+      transition: background-color 0.3s;
+    }
+    .lymph-content .cta-button:hover {
+      background-color: #a81b4f;
+    }
+    @media (max-width: 768px) {
+      .lymph-container {
+        flex-direction: column;
+      }
+      .lymph-image {
+        width: 100%;
+        margin-bottom: 2rem;
+      }
+    }
+    
+    .healing-massages {
+  position: relative;
+  /* Remove or adjust the existing background image if necessary */
+  background: none;
+}
+
+.healing-massages::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('images/healing-bg.jpg') center/cover no-repeat;
+  filter: blur(3px); /* This applies the 3px blur */
+  z-index: -2;
+}
+
+/* If you have an overlay, keep it as is */
+.healing-massages::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.7); /* Dark overlay */
+  background-blend-mode: multiply;
+  z-index: -1;
+}
+.healing-content{
+  text-align: center;
+  padding-top: 4em;
+  padding-bottom: 4.5em;
+  padding-left: 2em;
+  padding-right: 2em;
+}
+    .healing-massages .healing-container {
+      display: flex;
+      margin: 0 auto;
+      align-items: flex-start;
+      gap: 2rem;
+    }
+    .healing-massages .healing-cards {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .healing-massages .healing-card {
+      /* Glassmorphism effect */
+      background: rgba(255, 255, 255, 0.6);
+      border-radius: 16px;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
+      padding: 1.5rem;
+      width: calc(25% - 1rem);
+      min-width: 250px;
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .healing-massages .healing-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    }
+    .healing-massages .healing-card i {
+      font-size: 36px;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+    .healing-massages .healing-card h3 {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+      color: var(--dark);
+    }
+    .healing-massages .healing-card p.time {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: var(--dark);
+    }
+    .healing-massages .healing-card small {
+      font-size: 14px;
+      color: var(--dark);
+      display: block;
+    }
+    .healing-massages .cta-button {
+      display: inline-block;
+      text-decoration: none;
+      padding: 12px 24px;
+      background-color: var(--accent);
+      color: #fff;
+      border-radius: 30px;
+      font-weight: 600;
+      transition: background-color 0.3s;
+      margin-top: 2rem;
+    }
+    .healing-massages .cta-button:hover {
+      background-color: #a81b4f;
+    }
+    @media (max-width: 768px) {
+      .healing-massages .healing-container {
+        flex-direction: column;
+        align-items: center;
+      }
+      .healing-massages .healing-card {
+        width: 100%;
+        max-width: 350px;
+      }
+    }
+/* Секция: Специализирани масажи */
+.specialized-massages {
+  background-color: #f9f6f8; /* или #f3f0f2 според предпочитанията */
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.specialized-massages .section-title {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Премахваме max-width и margin, за да се използва пълната ширина */
+.specialized-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2em;
+}
+
+.specialized-card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 2rem 1.5rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s, box-shadow 0.3s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.specialized-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.specialized-icon {
+  font-size: 48px;
+  color: var(--accent, #d12564);
+  transition: transform 0.3s;
+}
+
+.specialized-card:hover .specialized-icon {
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+.specialized-title {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.specialized-duration {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #555;
+}
+
+.specialized-desc {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
+  min-height: 3em; /* гарантира минимум 2 реда текст */
+}
+
+/* Стандартният .cta-button стил от останалите секции ще се приложи към бутона по-долу */
+.section-cta {
+  margin-top: 2rem;
+}
+/* Допълнителни терапии - Секция */
+.additional-therapies {
+  padding: 4rem 2rem;
+  background-color: #fff;
+}
+
+.additional-container {
+  display: flex;
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: center;
+  gap: 2rem;
+}
+
+/* Лява колона: Изображение */
+.additional-image {
+  flex: 1;
+}
+.additional-image img {
+  width: 100%;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+/* Дясна колона: Текстово съдържание */
+.additional-content {
+  flex: 1;
+  padding: 2rem;
+  background-color: #f4f8f9; /* Subtle light blue-gray background */
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+.additional-content h2 {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--dark);
+}
+.additional-content .section-subtitle {
+  font-size: 18px;
+  color: #777;
+  margin-bottom: 1.5rem;
+}
+.therapy-list {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 2rem;
+}
+.therapy-list li {
+  font-size: 16px;
+  margin-bottom: 1.5rem;
+  color: #555;
+  line-height: 1.5;
+}
+.therapy-list li strong {
+  font-weight: 600;
+  color: var(--dark);
+}
+.therapy-list li .time {
+  font-weight: 600;
+  color: var(--dark);
+}
+
+/* Call-to-Action Button */
+.additional-content .cta-button {
+  display: inline-block;
+  text-decoration: none;
+  padding: 12px 24px;
+  background-color: var(--accent);
+  color: #fff;
+  border-radius: 30px;
+  font-weight: 600;
+  transition: background-color 0.3s;
+}
+.additional-content .cta-button:hover {
+  background-color: #a81b4f;
+}
+
+/* Mobile Adaptation */
+@media (max-width: 768px) {
+  .additional-container {
+    flex-direction: column;
+  }
+  .additional-image {
+    margin-bottom: 2rem;
+  }
+}
+
+  </style>
+</head>
+<body>
+  <header id="header"></header>
+
+  <!-- HERO секция за Масажи -->
+  <section class="hero-massages">
+    <div class="hero-content">
+      <h1>Открий своя релакс</h1>
+      <div class="decorative-line"></div>
+      <p>Поглезете се с нашите професионални масажи, създадени да възстановят тялото и духа ви.</p>
+      <div class="cta-group">
+        <a href="#masaji" class="primary-btn">Запази си час сега</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Секция с категории масажи -->
+  <section class="massage-categories">
+    <h2>Открий точния масаж за своите нужди</h2>
+    <p class="section-subtitle">Отпусни тялото си, освободи напрежението и се довери на сертифицирани терапевти</p>
+    <div class="categories-grid">
+      <!-- Карта 1: Релаксиращи масажи -->
+      <div class="category-card">
+        <div class="category-icon"><i class="fas fa-leaf"></i></div>
+        <h3>Релаксиращи масажи</h3>
+        <p>Отпусни ума и тялото с ароматерапия и нежен допир</p>
+        <a href="#relaksirashti" class="cta-button">Виж масажите</a>
+      </div>
+      <!-- Карта 2: Антицелулитни масажи -->
+      <div class="category-card">
+        <div class="category-icon"><i class="fas fa-spa"></i></div>
+        <h3>Антицелулитни масажи</h3>
+        <p>Разбиване на мастни натрупвания и оформяне на силует</p>
+        <a href="#anticelulitni" class="cta-button">Виж масажите</a>
+      </div>
+      <!-- Карта 3: Лимфодренажни масажи -->
+      <div class="category-card">
+        <div class="category-icon"><i class="fas fa-tint"></i></div>
+        <h3>Лимфодренажни масажи</h3>
+        <p>Стимулирай лимфната система и се освободи от задържани течности</p>
+        <a href="#limfna" class="cta-button">Виж масажите</a>
+      </div>
+      <!-- Карта 4: Лечебни масажи -->
+      <div class="category-card">
+        <div class="category-icon"><i class="fas fa-heartbeat"></i></div>
+        <h3>Лечебни масажи</h3>
+        <p>За облекчаване на болки, напрежение и мускулна скованост</p>
+        <a href="#lechebni" class="cta-button">Виж масажите</a>
+      </div>
+      <!-- Карта 5: Специализирани масажи -->
+      <div class="category-card">
+        <div class="category-icon"><i class="fas fa-hands"></i></div>
+        <h3>Специализирани масажи</h3>
+        <p>Юмейхо, Гойуки, Гуаша и други традиционни техники</p>
+        <a href="#specialni" class="cta-button">Виж масажите</a>
+      </div>
+      <!-- Карта 6: Допълнителни терапии -->
+      <div class="category-card">
+        <div class="category-icon"><i class="fas fa-plus-circle"></i></div>
+        <h3>Допълнителни терапии</h3>
+        <p>Бързи, ефективни процедури за детокс, възстановяване и грижа за цялото семейство</p>
+        <a href="#drugite" class="cta-button">Виж масажите</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Секция: Популярни масажи / Нашите бестселъри -->
+  <section class="popular-massages">
+    <h2>Нашите бестселъри</h2>
+    <p class="section-subtitle">Популярни масажи, които носят бързи и видими резултати.</p>
+    <div class="massages-grid">
+      <!-- Карта 1: Антицелулитен масаж (ръчен) -->
+      <div class="massage-card">
+        <img src="images/anti-celulit.jpg" alt="Антицелулитен масаж">
+        <div class="massage-content">
+          <h3>Антицелулитен масаж (ръчен)</h3>
+          <p class="time"><strong>⏱ 40 минути</strong></p>
+          <p>Разбива мазнините, изглажда кожата, оформя бедра и паласки.</p>
+          <a href="#anti-celulit" class="cta-button">Научи повече</a>
+        </div>
+      </div>
+      <!-- Карта 2: Релаксиращ масаж с ароматерапия -->
+      <div class="massage-card">
+        <img src="images/aromatherapy.jpg" alt="Релаксиращ масаж с ароматерапия">
+        <div class="massage-content">
+          <h3>Релаксиращ масаж с ароматерапия</h3>
+          <p class="time"><strong>⏱ 60 минути</strong></p>
+          <p>Пълно отпускане на ума и тялото с нежни движения и аромати.</p>
+          <a href="#aromatherapy" class="cta-button">Научи повече</a>
+        </div>
+      </div>
+      <!-- Карта 3: Лимфодренажен масаж на цяло тяло -->
+      <div class="massage-card">
+        <img src="images/limf-drenaj.jpg" alt="Лимфодренажен масаж">
+        <div class="massage-content">
+          <h3>Лимфодренажен масаж на цяло тяло</h3>
+          <p class="time"><strong>⏱ 60 минути</strong></p>
+          <p>Детокс, освобождаване от задържани течности и усещане за лекота.</p>
+          <a href="#limf-drenaj" class="cta-button">Научи повече</a>
+        </div>
+      </div>
+      <!-- Карта 4: Юмейхо масаж -->
+      <div class="massage-card">
+        <img src="images/yumeiho.jpg" alt="Юмейхо масаж">
+        <div class="massage-content">
+          <h3>Юмейхо масаж</h3>
+          <p class="time"><strong>⏱ 60 минути</strong></p>
+          <p>Японска мануална терапия – възстановява симетрията в тялото.</p>
+          <a href="#yumeiho" class="cta-button">Научи повече</a>
+        </div>
+      </div>
+    </div>
+    <p class="bottom-note">Всички масажи се извършват от сертифицирани терапевти в релаксираща атмосфера.</p>
+  </section>
+
+  <!-- Секция: Релаксиращи масажи (2 колони) -->
+  <section class="relaxing-massages">
+    <div class="relaxing-container">
+      <!-- Лява колона: Снимка -->
+      <div class="relaxing-image">
+        <img src="images/relaxing-massage.jpg" alt="Релаксиращ масаж – момент на пълен покой">
+      </div>
+      <!-- Дясна колона: Съдържание -->
+      <div class="relaxing-content">
+        <h2>Релаксиращи масажи – твоят момент на пълен покой</h2>
+        <p class="intro">Подари си дълбок релакс с нашите масажи, създадени да балансират тялото и ума.</p>
+        <ul class="massage-list">
+          <li>
+            <i class="fas fa-leaf"></i>
+            <strong>Релаксиращ масаж с ароматерапия</strong><br>
+            <span class="time">⏱ 60 мин</span> — С етерични масла и бавни движения за пълно отпускане.
+          </li>
+          <li>
+            <i class="fas fa-hand-paper"></i>
+            <strong>Масаж на длани и ходила</strong><br>
+            <span class="time">⏱ 30 мин</span> — Облекчава натрупано напрежение в крайниците, чудесен за натоварени дни.
+          </li>
+          <li>
+            <i class="fas fa-spa"></i>
+            <strong>Релакс на тяло + ходила</strong><br>
+            <span class="time">⏱ 90 мин</span> — Комбинация от дълбок релакс и стимулация на стъпалата.
+          </li>
+          <li>
+            <i class="fas fa-shoe-prints"></i>
+            <strong>Рефлексология на стъпала</strong><br>
+            <span class="time">⏱ 30 мин</span> — Активира важни точки по ходилата и подобрява общия енергиен баланс.
+          </li>
+        </ul>
+        <a href="#relaxing" class="cta-button">Разгледай всички релаксиращи масажи</a>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Секция: Антицелулитни масажи -->
+  <section class="anti-cellulite-massages">
+    <div class="anti-cellulite-container">
+      <h2>Антицелулитни масажи с видим ефект</h2>
+      <p class="section-subtitle">
+        Оформи тялото си с масажи, които разбиват целулит, активират лимфата и изглаждат кожата.
+      </p>
+      <div class="anti-cellulite-grid">
+        <!-- Карта 1 -->
+        <div class="anti-cellulite-card">
+          <div class="card-icon"><i class="fas fa-hand-fist"></i></div>
+          <h3>Антицелулитен ръчен масаж</h3>
+          <p class="time"><strong>⏱ 40 мин</strong></p>
+          <p>Интензивен масаж с ръчни техники за разграждане на мастни натрупвания и изглаждане на кожата.</p>
+        </div>
+        <!-- Карта 2 -->
+        <div class="anti-cellulite-card">
+          <div class="card-icon"><i class="fas fa-dot-circle"></i></div>
+          <h3>Антицелулитен масаж с вендузи</h3>
+          <p class="time"><strong>⏱ 40 мин</strong></p>
+          <p>Вакуумен масаж с вендузи, който подобрява циркулацията и ускорява лимфния дренаж.</p>
+        </div>
+        <!-- Карта 3 -->
+        <div class="anti-cellulite-card">
+          <div class="card-icon"><i class="fas fa-gem"></i></div>
+          <h3>Гуа Ша масаж</h3>
+          <p class="time"><strong>⏱ 30 мин</strong></p>
+          <p>С дълбоко търкаляне с гуа-ша инструмент за стимулиране на микроциркулацията и подобряване на текстурата на кожата.</p>
+        </div>
+      </div>
+      <a href="#anti-cellulite" class="cta-button">Разгледай всички антицелулитни масажи</a>
+    </div>
+  </section>
+  
+  <!-- Секция: Лимфодренажни масажи (Split Layout) -->
+  <section class="lymph-massages">
+    <div class="lymph-container">
+      <!-- Дясна част: Съдържание -->
+      <div class="lymph-content">
+        <h2>Лимфодренажни масажи – освежи и детоксикарай тялото си</h2>
+        <p class="section-subtitle">
+          Открий ефекта на лимфодренажа с нашите терапии, които стимулират лимфната циркулация и носят лекота.
+        </p>
+        <div class="lymph-cards">
+          <!-- Картичка 1 -->
+          <div class="lymph-card">
+            <div class="lymph-card-icon"><i class="fa-solid fa-face-smile-relaxed"></i></div>
+            <div class="lymph-card-content">
+              <strong>Лимфодренажен масаж на лице</strong>
+              <span class="time">⏱ 15 мин</span>
+              <p>Свеж вид и детокс за кожата – идеален за подпухналост.</p>
+            </div>
+          </div>
+          <!-- Картичка 2 -->
+          <div class="lymph-card">
+            <div class="lymph-card-icon"><i class="fas fa-child"></i></div>
+            <div class="lymph-card-content">
+              <strong>Лимфодренажен масаж на тяло</strong>
+              <span class="time">⏱ 30 мин</span>
+              <p>Подобряване на циркулацията и редуциране на задържаните течности.</p>
+            </div>
+          </div>
+          <!-- Картичка 3 -->
+          <div class="lymph-card">
+            <div class="lymph-card-icon"><i class="fas fa-pump-medical"></i></div>
+            <div class="lymph-card-content">
+              <strong>Лимфодренажен масаж с Presotherapy</strong>
+              <span class="time">⏱ 40 мин</span>
+              <p>Цялостно стимулиране на лимфната система за подобряване на тонуса.</p>
+            </div>
+          </div>
+        </div>
+        <a href="#lymph" class="cta-button">Разгледай лимфодренажните масажи</a>
+      </div>
+      <!-- Лява част: Изображение -->
+      <div class="lymph-image">
+        <img src="images/lymph-massage.jpg" alt="Лимфодренажен масаж – лекота и детокс">
+      </div>
+    </div>
+  </section>
+  
+  <!-- Секция: Лечебни масажи (Glassmorphism Effect) -->
+  <section class="healing-massages">
+    <div class="healing-container">
+      <!-- Дясна част: Съдържание -->
+      <div class="healing-content">
+        <h2>Лечебни масажи</h2>
+        <p class="section-subtitle">
+          Експертни терапии за облекчаване на мускулни блокажи и болки.
+        </p>
+        <div class="healing-cards">
+          <!-- Карта 1 -->
+          <div class="healing-card">
+            <i class="fas fa-user-md"></i>
+            <h3>Масаж на цяло тяло</h3>
+            <p class="time"><strong>⏱ 60 мин</strong></p>
+            <small>Интензивна терапия за мускулни блокажи и болки.</small>
+          </div>
+          <!-- Карта 2 -->
+          <div class="healing-card">
+            <i class="fas fa-hammer"></i>
+            <h3>Дълбокотъканен масаж</h3>
+            <p class="time"><strong>⏱ 50 мин</strong></p>
+            <small>Навлиза в дълбоките слоеве за трайно освобождаване на напрежение.</small>
+          </div>
+          <!-- Карта 3 -->
+          <div class="healing-card">
+            <i class="fas fa-fire"></i>
+            <h3>Масаж с вендузи</h3>
+            <p class="time"><strong>⏱ 30 мин</strong></p>
+            <small>Стимулира кръвообращението и отпуска хронични възпаления.</small>
+          </div>
+          <!-- Карта 4 -->
+          <div class="healing-card">
+            <i class="fas fa-running"></i>
+            <h3>Спортен масаж</h3>
+            <p class="time"><strong>⏱ 45 мин</strong></p>
+            <small>Идеален за активни хора и спортисти с мускулна умора.</small>
+          </div>
+        </div>
+        <a href="#healing" class="cta-button">Виж всички лечебни масажи</a>
+      </div>
+    </div>
+  </section>
+  <!-- Секция: Специализирани техники от Изтока и Запада -->
+<section class="specialized-massages" id="specialni">
+  <h2 class="section-title">Специализирани техники от Изтока и Запада</h2>
+  <div class="specialized-grid">
+    <!-- Карта 1: ЮМЕЙХО масаж -->
+    <div class="specialized-card">
+      <div class="specialized-icon">
+        <i class="fa-solid fa-hand-holding-heart"></i>
+      </div>
+      <h3 class="specialized-title">ЮМЕЙХО масаж</h3>
+      <p class="specialized-duration">⏱ 60 мин</p>
+      <p class="specialized-desc">Масажна техника с японски корени – връща хармонията между тялото и гръбнака. Подходящ при асиметрии и хронични болки.</p>
+    </div>
+    <!-- Карта 2: ГОЮКИ масаж -->
+    <div class="specialized-card">
+      <div class="specialized-icon">
+        <i class="fa-solid fa-spa"></i>
+      </div>
+      <h3 class="specialized-title">ГОЮКИ масаж</h3>
+      <p class="specialized-duration">⏱ 40 мин</p>
+      <p class="specialized-desc">Метод за дълбока регулация на енергийния поток и мускулното напрежение. Изключително отпускащ и лечебен.</p>
+    </div>
+    <!-- Карта 3: Тайландски масаж -->
+    <div class="specialized-card">
+      <div class="specialized-icon">
+        <i class="fa-solid fa-om"></i>
+      </div>
+      <h3 class="specialized-title">Тайландски масаж</h3>
+      <p class="specialized-duration">⏱ 90 мин</p>
+      <p class="specialized-desc">Класика от Изтока – пасивни стречинг техники и акупресура. Раздвижва енергията и подобрява гъвкавостта.</p>
+    </div>
+  </div>
+  <a href="#specialni-details" class="cta-button section-cta">Виж всички специализирани масажи</a>
+</section>
+<!-- Секция: Допълнителни терапии -->
+<section class="additional-therapies">
+  <div class="additional-container">
+    <!-- Лява колона: Изображение -->
+    <div class="additional-image">
+      <img src="images/additional-therapy.jpg" alt="Допълващи терапии">
+    </div>
+    <!-- Дясна колона: Текстово съдържание -->
+    <div class="additional-content">
+      <h2>Допълващи терапии за всяка нужда</h2>
+      <p class="section-subtitle">Кратки, целенасочени терапии, които носят голям ефект.</p>
+      <ul class="therapy-list">
+        <li>
+          <strong>Класически масаж на цяло тяло</strong><br>
+          <span class="time">⏱ 50 мин</span> – Балансирана грижа за тялото и ума.
+        </li>
+        <li>
+          <strong>Класически масаж на гръб</strong><br>
+          <span class="time">⏱ 30 мин</span> – Бързо освобождаване на напрежението в гърба.
+        </li>
+        <li>
+          <strong>Детски масаж</strong><br>
+          <span class="time">⏱ 30 мин</span> – Нежна грижа за подрастващи, създава навик за релакс.
+        </li>
+        <li>
+          <strong>Масаж с мед</strong><br>
+          <span class="time">⏱ 30 мин</span> – Естествена терапия за детокс и еластичност на кожата.
+        </li>
+        <li>
+          <strong>Йонна детоксикация</strong><br>
+          <span class="time">⏱ 30 мин</span> – Изчистване на токсини чрез стъпалата и електролитен баланс.
+        </li>
+      </ul>
+      <a href="#booking" class="cta-button">Запази си час</a>
+    </div>
+  </div>
+</section>
+<section class="final-cta" style="    background: url(images/last-cta-massage.jpg) center / cover no-repeat;">
+  <div class="cta-overlay"></div>
+  <div class="cta-container">
+    <h2>Твоето тяло заслужава грижа</h2>
+    <p>Намери масажа, който ще отпусне мускулите, освободи напрежението и възстанови баланса ти.</p>
+    <a href="#booking" class="cta-button">Запази своя час за масаж</a>
+  </div>
+</section>
+<section class="seo-text">
+  <div class="seo-container">
+    <h2>Какви резултати да очакваш и как работят нашите терапии</h2>
+    <p class="seo-intro">
+      В DARA Body Line вярваме, че всяка жена заслужава да се чувства уверена в тялото си. Затова сме създали комбинация от модерни технологии и доказани методи – за реални резултати без болка и дискомфорт.
+    </p>
+    <button class="seo-toggle">Прочети още</button>
+    <div class="seo-content">
+      <h3>Нашите терапии в детайли</h3>
+      <p>
+        Нашите топ терапии като Roll Shaper, EMS Sculpt, Кавитация, RF лифтинг и антицелулитните масажи са насочени към оформяне на силуета, редуциране на целулит, изграждане на мускулен тонус, подобряване на кръвообращението и лимфния дренаж, както и стимулиране на естествените процеси на тялото.
+      </p>
+      <h3>Как работят процедурите</h3>
+      <p>
+        Чрез EMS Sculpt се създават над 20 000 мускулни контракции в рамките на 30 минути – това води до ускорено горене на мазнини и изграждане на мускул. Roll Shaper активира лимфната система и намалява обиколките още след първите процедури. Антицелулитният масаж комбинира ръчни техники с целенасочено действие върху мастните натрупвания, подобрявайки текстурата на кожата.
+      </p>
+      <h3>Препоръчителен брой процедури</h3>
+      <p>
+        Макар първите резултати да се виждат още след няколко посещения, оптималният ефект се постига при план от 5 до 10 процедури. За максимален резултат препоръчваме комбиниран подход и консултация с нашия екип.
+      </p>
+    </div>
+  </div>
+</section>
+  <!-- Footer Section -->
+  <footer class="footer" id="footer"></footer>
+  <script src="main.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+  const seoToggle = document.querySelector(".seo-toggle");
+  const seoContent = document.querySelector(".seo-content");
+
+  seoToggle.addEventListener("click", function() {
+    seoContent.classList.toggle("active");
+    if (seoContent.classList.contains("active")) {
+      seoToggle.innerHTML = 'Скрий текста';
+      // Скрол към съдържанието при разгръщане
+      seoContent.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      seoToggle.innerHTML = 'Прочети още';
+      // Скрол към бутона при сгъване
+      seoToggle.scrollIntoView({ behavior: 'smooth' });
+    }
+  });
+});
+    (function() {
+      const sliderWrapper = document.querySelector('.slider-wrapper');
+      const slider = document.querySelector('.testimonial-slider');
+      let slides = document.querySelectorAll('.testimonial');
+      const leftArrow = document.querySelector('.left-arrow');
+      const rightArrow = document.querySelector('.right-arrow');
+  
+      // Клонираме първата и последната карта
+      const firstClone = slides[0].cloneNode(true);
+      const lastClone = slides[slides.length - 1].cloneNode(true);
+  
+      // Добавяме клонираните елементи
+      slider.appendChild(firstClone);
+      slider.insertBefore(lastClone, slides[0]);
+  
+      // Обновяваме списъка със слайдове
+      slides = document.querySelectorAll('.testimonial');
+  
+      // Задаваме началния индекс на първия "реален" слайд
+      let currentIndex = 1;
+      let slideWidth = sliderWrapper.offsetWidth;
+      slider.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+  
+      function updateSlider(withTransition = true) {
+        // Ако трябва да е с плавен преход, задаваме transition
+        slider.style.transition = withTransition ? 'transform 0.5s ease' : 'none';
+        slider.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+      }
+  
+      rightArrow.addEventListener('click', () => {
+        if (currentIndex >= slides.length - 1) return;
+        currentIndex++;
+        updateSlider();
+      });
+  
+      leftArrow.addEventListener('click', () => {
+        if (currentIndex <= 0) return;
+        currentIndex--;
+        updateSlider();
+      });
+  
+      // След приключване на прехода проверяваме за клонирани слайдове
+      slider.addEventListener('transitionend', () => {
+        // Ако сме на клонирания първи слайд (в края)
+        if (slides[currentIndex].isEqualNode(firstClone)) {
+          slider.style.transition = 'none';
+          currentIndex = 1;
+          slider.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+        }
+        // Ако сме на клонирания последен слайд (в началото)
+        if (slides[currentIndex].isEqualNode(lastClone)) {
+          slider.style.transition = 'none';
+          currentIndex = slides.length - 2;
+          slider.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+        }
+      });
+  
+      // Актуализиране на ширината при resize
+      window.addEventListener('resize', () => {
+        slideWidth = sliderWrapper.offsetWidth;
+        updateSlider(false);
+      });
+    })();
+  </script>  
+</body>
+</html>
