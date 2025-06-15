@@ -3,11 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ЮМЕЙХО масаж</title>
+  <title>Юмейхо масаж</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" 
+    integrity="sha512-mZ9bV07L0lYw5C5fH+0D7qPt3nJ1DhVvGZ9KNPa0kY4j5Kz6T8O7bI5VQUt7x4b+3RQ36fFFdI2n+H3HfIg/ZA==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.7.2/css/all.css">
+  <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.7.2/css/sharp-solid.css">
+  <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.7.2/css/sharp-regular.css">
+  <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.7.2/css/sharp-light.css">
+  <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.7.2/css/duotone.css"/>
+  <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.7.2/css/brands.css"/>
+  <!-- Допълнителен CSS за всички секции -->
   <style>
+    /* HERO секция */
     .hero-massages {
       display: flex;
       align-items: center;
@@ -27,7 +37,7 @@
       width: 100%;
       height: 100%;
       background: url('images/yumeiho.jpg') center/cover no-repeat;
-      background-position: 0% 20%;
+      background-position: 0% 0%;
       z-index: -2;
     }
     .hero-massages::after {
@@ -64,135 +74,1476 @@
       display: inline-flex;
       gap: 1rem;
     }
-    .benefits-section {
+    
+    /* Секция с категории масажи */
+    .massage-categories {
       padding: 4rem 2rem;
-      background-color: white;
+      background-color: var(--light);
       text-align: center;
     }
-    .benefits-container {
-      max-width: 1200px;
+    .massage-categories h2 {
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+    }
+    .massage-categories p.section-subtitle {
+      font-size: 18px;
+      color: #666;
+      margin-bottom: 2.5rem;
+    }
+    .categories-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(300px, 1fr));
+      gap: 2rem;
       margin: 0 auto;
     }
-    .benefits-section h2 {
-      font-size: 32px;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-      color: var(--dark);
-    }
-    .benefits-subtitle {
-      font-size: 18px;
-      color: #777;
-      margin-bottom: 2rem;
-    }
-    .benefits-grid {
-      display: grid;
-      gap: 2rem;
-      margin-bottom: 2rem;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    }
-    .benefit-card {
-      background-color: #f7f7f7;
-      padding: 1.5rem;
+    .category-card {
+      background-color: #fafafa;
+      border: 1px solid #eee;
       border-radius: 10px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      padding: 2rem 1rem;
       transition: transform 0.3s, box-shadow 0.3s;
+      position: relative;
     }
-    .benefit-card:hover {
+    .category-card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
     }
-    .benefit-icon {
-      width: 60px;
-      height: 60px;
-      background-color: var(--accent, #d12564);
+    .category-icon {
+      width: 80px;
+      height: 80px;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       margin: 0 auto 1rem;
-      color: #fff;
-      font-size: 28px;
+      font-size: 45px;
+      color: var(--accent);
       transition: transform 0.3s;
     }
-    .benefit-card:hover .benefit-icon {
-      transform: scale(1.1);
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
     }
-    .benefit-card h3 {
+    .category-card:hover .category-icon {
+      animation: pulse 1s infinite;
+    }
+    .category-card h3 {
+      font-size: 22px;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    .category-card p {
+      font-size: 16px;
+      margin-bottom: 1rem;
+      color: #555;
+    }
+    .category-card .cta-button {
+      display: inline-block;
+      text-decoration: none;
+      padding: 10px 20px;
+      background-color: var(--accent);
+      color: #fff;
+      border-radius: 30px;
+      font-weight: 600;
+      transition: background-color 0.3s;
+    }
+    .category-card .cta-button:hover {
+      background-color: #a81b4f;
+    }
+    
+    /* Секция: Популярни масажи / Нашите бестселъри */
+    .popular-massages {
+      padding: 4rem 2rem;
+      background-color: #f9f9f9;
+      text-align: center;
+    }
+    .popular-massages h2 {
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    .popular-massages p.section-subtitle {
       font-size: 18px;
+      color: #777;
+      margin-bottom: 2.5rem;
+    }
+    .massages-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin: 0 auto;
+    }
+    .massage-card {
+      background-color: var(--light);
+      border: 1px solid #eee;
+      border-radius: 10px;
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .massage-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    }
+    .massage-card img {
+      width: 100%;
+      height: 15em;
+      object-fit: cover;
+    }
+    .massage-content {
+      padding: 1.5rem;
+      text-align: left;
+      padding-top: 0.5rem;
+    }
+    .massage-content h3 {
+      font-size: 22px;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    .massage-content p {
+      font-size: 16px;
+      margin-bottom: 1rem;
+      color: #555;
+    }
+    .massage-content p.time {
+      font-weight: 600;
+    }
+    .massage-content .cta-button {
+      display: inline-block;
+      text-decoration: none;
+      padding: 10px 20px;
+      background-color: var(--accent);
+      color: #fff;
+      border-radius: 30px;
+      font-weight: 600;
+      transition: background-color 0.3s;
+    }
+    .massage-content .cta-button:hover {
+      background-color: #a81b4f;
+    }
+    .popular-massages .bottom-note {
+      font-size: 14px;
+      color: #777;
+      margin-top: 2rem;
+    }
+    
+    /* Секция: Юмейхо масаж (2 колони) */
+    .relaxing-massages {
+      padding: 4rem 2rem;
+      background-color: #fff;
+    }
+    .relaxing-container {
+      display: flex;
+      max-width: 1200px;
+      margin: 0 auto;
+      align-items: center;
+    }
+    .relaxing-image,
+    .relaxing-content {
+      flex: 1;
+      padding: 1rem;
+    }
+    .relaxing-image img {
+      width: 100%;
+      height: auto;
+      max-height: 40em;
+      border-radius: 10px;
+      object-fit: cover;
+    }
+    .relaxing-content h2 {
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: var(--dark);
+    }
+    .relaxing-content .intro {
+      font-size: 18px;
+      margin-bottom: 1.5rem;
+      color: #555;
+    }
+    .massage-list {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 2rem;
+    }
+    .massage-list li {
+      font-size: 16px;
+      margin-bottom: 1rem;
+      color: #555;
+      line-height: 1.5;
+    }
+    .massage-list li i {
+      color: var(--accent);
+      margin-right: 0.5rem;
+    }
+    .massage-list li strong {
+      color: var(--dark);
+    }
+    .relaxing-content .cta-button {
+      display: inline-block;
+      text-decoration: none;
+      padding: 12px 24px;
+      background-color: var(--accent);
+      color: #fff;
+      border-radius: 30px;
+      font-weight: 600;
+      transition: background-color 0.3s;
+    }
+    .relaxing-content .cta-button:hover {
+      background-color: #a81b4f;
+    }
+    @media (max-width: 768px) {
+      .relaxing-container {
+        flex-direction: column;
+      }
+      .relaxing-image {
+        margin-bottom: 2rem;
+      }
+    }
+    
+    /* Секция: Антицелулитни масажи */
+    .anti-cellulite-massages {
+      padding: 4rem 2rem;
+      background-color: #f9f9f9;
+      text-align: center;
+    }
+    .anti-cellulite-massages h2 {
+      font-size: 36px;
       font-weight: 700;
       margin-bottom: 0.5rem;
       color: var(--dark);
-      text-align: center;
     }
-    .benefit-card p {
-      font-size: 14px;
+    .anti-cellulite-massages p.section-subtitle,
+    .healing-content p.section-subtitle {
+      font-size: 18px;
+      color: #777;
+      margin-bottom: 2.5rem;
+    }
+    .anti-cellulite-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(250px, 1fr));
+      gap: 2rem;
+      margin: 0 auto 2rem;
+    }
+    .anti-cellulite-card {
+      background-color: #fff;
+      border: 1px solid #eee;
+      border-radius: 10px;
+      padding: 2rem 1rem;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .anti-cellulite-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    }
+    .anti-cellulite-card .card-icon {
+      font-size: 40px;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+    .anti-cellulite-card h3 {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: var(--dark);
+    }
+    .anti-cellulite-card p {
+      font-size: 16px;
+      margin-bottom: 1rem;
       color: #555;
-      margin: 0;
-      text-align: center;
     }
+    .anti-cellulite-massages .cta-button {
+      display: inline-block;
+      text-decoration: none;
+      padding: 12px 24px;
+      background-color: var(--accent);
+      color: #fff;
+      border-radius: 30px;
+      font-weight: 600;
+      transition: background-color 0.3s;
+    }
+    .anti-cellulite-massages .cta-button:hover {
+      background-color: #a81b4f;
+    }
+    @media (max-width: 768px) {
+      .anti-cellulite-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    /* Секция: Лимфодренажни масажи (Split Layout) */
+    .lymph-massages {
+      padding: 4rem 2rem;
+      background-color: var(--light);
+    }
+    .lymph-container {
+      display: flex;
+      max-width: 1200px;
+      margin: 0 auto;
+      align-items: center;
+    }
+    .lymph-image {
+      flex: 1;
+      padding: 1rem;
+    }
+    .lymph-image img {
+      width: 100%;
+      border-radius: 10px;
+      object-fit: cover;
+    }
+    .lymph-content {
+      flex: 1;
+      padding: 1rem;
+      text-align: left;
+    }
+    .lymph-content h2,
+    .healing-content h2 {
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: var(--dark);
+    }
+    .healing-content h2 {
+      color: var(--light);
+    }
+    /* Lighter healing subtitle */
+    .healing-content p.section-subtitle {
+      font-size: 18px;
+      color: #ccc;
+      margin-bottom: 2.5rem;
+    }
+    .lymph-content p.section-subtitle {
+      font-size: 18px;
+      color: #555;
+      margin-bottom: 2rem;
+    }
+    .lymph-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .lymph-card {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      background-color: #fafafa;
+      padding: 1rem;
+      border: 1px solid #eee;
+      border-radius: 10px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .lymph-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+    }
+    .lymph-card-icon {
+      flex-shrink: 0;
+      width: 50px;
+      height: 50px;
+      background-color: #fff;
+      border: 1px solid #eee;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      color: var(--accent);
+    }
+    .lymph-card-content {
+      font-size: 16px;
+      color: #555;
+    }
+    .lymph-card-content strong {
+      display: block;
+      font-size: 18px;
+      color: var(--dark);
+      margin-bottom: 0.3rem;
+    }
+    .lymph-card-content span.time {
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+      display: block;
+    }
+    .lymph-card-content p {
+      margin: 0;
+    }
+    .lymph-content .cta-button {
+      display: inline-block;
+      text-decoration: none;
+      padding: 12px 24px;
+      background-color: var(--accent);
+      color: #fff;
+      border-radius: 30px;
+      font-weight: 600;
+      transition: background-color 0.3s;
+    }
+    .lymph-content .cta-button:hover {
+      background-color: #a81b4f;
+    }
+    @media (max-width: 768px) {
+      .lymph-container {
+        flex-direction: column;
+      }
+      .lymph-image {
+        width: 100%;
+        margin-bottom: 2rem;
+      }
+    }
+    
+    .healing-massages {
+  position: relative;
+  /* Remove or adjust the existing background image if necessary */
+  background: none;
+}
+
+.healing-massages::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('images/healing-bg.jpg') center/cover no-repeat;
+  filter: blur(3px); /* This applies the 3px blur */
+  z-index: -2;
+}
+
+/* If you have an overlay, keep it as is */
+.healing-massages::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.7); /* Dark overlay */
+  background-blend-mode: multiply;
+  z-index: -1;
+}
+.healing-content{
+  text-align: center;
+  padding-top: 4em;
+  padding-bottom: 4.5em;
+  padding-left: 2em;
+  padding-right: 2em;
+}
+    .healing-massages .healing-container {
+      display: flex;
+      margin: 0 auto;
+      align-items: flex-start;
+      gap: 2rem;
+    }
+    .healing-massages .healing-cards {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .healing-massages .healing-card {
+      /* Glassmorphism effect */
+      background: rgba(255, 255, 255, 0.6);
+      border-radius: 16px;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
+      padding: 1.5rem;
+      width: calc(25% - 1rem);
+      min-width: 250px;
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .healing-massages .healing-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    }
+    .healing-massages .healing-card i {
+      font-size: 36px;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+    .healing-massages .healing-card h3 {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+      color: var(--dark);
+    }
+    .healing-massages .healing-card p.time {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: var(--dark);
+    }
+    .healing-massages .healing-card small {
+      font-size: 14px;
+      color: var(--dark);
+      display: block;
+    }
+    .healing-massages .cta-button {
+      display: inline-block;
+      text-decoration: none;
+      padding: 12px 24px;
+      background-color: var(--accent);
+      color: #fff;
+      border-radius: 30px;
+      font-weight: 600;
+      transition: background-color 0.3s;
+      margin-top: 2rem;
+    }
+    .healing-massages .cta-button:hover {
+      background-color: #a81b4f;
+    }
+    @media (max-width: 768px) {
+      .healing-massages .healing-container {
+        flex-direction: column;
+        align-items: center;
+      }
+      .healing-massages .healing-card {
+        width: 100%;
+        max-width: 350px;
+      }
+    }
+/* Секция: Специализирани масажи */
+.specialized-massages {
+  background-color: #f9f6f8; /* или #f3f0f2 според предпочитанията */
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.specialized-massages .section-title {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Премахваме max-width и margin, за да се използва пълната ширина */
+.specialized-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2em;
+}
+
+.specialized-card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 2rem 1.5rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s, box-shadow 0.3s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.specialized-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.specialized-icon {
+  font-size: 48px;
+  color: var(--accent, #d12564);
+  transition: transform 0.3s;
+}
+
+.specialized-card:hover .specialized-icon {
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+.specialized-title {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.specialized-duration {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #555;
+}
+
+.specialized-desc {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
+  min-height: 3em; /* гарантира минимум 2 реда текст */
+}
+
+/* Стандартният .cta-button стил от останалите секции ще се приложи към бутона по-долу */
+.section-cta {
+  margin-top: 2rem;
+}
+/* Допълнителни терапии - Секция */
+.additional-therapies {
+  padding: 4rem 2rem;
+  background-color: #fff;
+}
+
+.additional-container {
+  display: flex;
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: center;
+  gap: 2rem;
+}
+
+/* Лява колона: Изображение */
+.additional-image {
+  flex: 1;
+}
+.additional-image img {
+  width: 100%;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+/* Дясна колона: Текстово съдържание */
+.additional-content {
+  flex: 1;
+  padding: 2rem;
+  background-color: #f4f8f9; /* Subtle light blue-gray background */
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+.additional-content h2 {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--dark);
+}
+.additional-content .section-subtitle {
+  font-size: 18px;
+  color: #777;
+  margin-bottom: 1.5rem;
+}
+.therapy-list {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 2rem;
+}
+.therapy-list li {
+  font-size: 16px;
+  margin-bottom: 1.5rem;
+  color: #555;
+  line-height: 1.5;
+}
+.therapy-list li strong {
+  font-weight: 600;
+  color: var(--dark);
+}
+.therapy-list li .time {
+  font-weight: 600;
+  color: var(--dark);
+}
+
+/* Call-to-Action Button */
+.additional-content .cta-button {
+  display: inline-block;
+  text-decoration: none;
+  padding: 12px 24px;
+  background-color: var(--accent);
+  color: #fff;
+  border-radius: 30px;
+  font-weight: 600;
+  transition: background-color 0.3s;
+}
+.additional-content .cta-button:hover {
+  background-color: #a81b4f;
+}
+
+/* Mobile Adaptation */
+@media (max-width: 768px) {
+  .additional-container {
+    flex-direction: column;
+  }
+  .additional-image {
+    margin-bottom: 2rem;
+  }
+}
+.when-relax-massage {
+  padding: 4rem 2rem;
+  background-color: #f9f9f9; /* A calm, light background */
+  text-align: center;
+}
+
+.when-relax-massage h2 {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--dark);
+}
+
+.when-relax-massage .subtitle {
+  font-size: 18px;
+  color: #777;
+  margin-bottom: 2rem;
+}
+
+.reasons-grid {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.reason {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.reason i {
+  font-size: 36px;
+  color: var(--accent, #d12564);
+  margin-bottom: 0.5rem;
+}
+
+.reason span {
+  font-size: 16px;
+  color: var(--dark);
+}
+
+/* Mobile adaptation: single column */
+@media (max-width: 768px) {
+  .reasons-grid {
+    grid-template-columns: 1fr;
+  }
+}
+/* Секция: Видове Юмейхо масаж */
+.relaxing-types {
+  padding: 4rem 2rem;
+  background-color: #fff;
+}
+
+.relaxing-types-container {
+  display: flex;
+  margin: 0 auto;
+  align-items: center;
+  gap: 2rem;
+  max-width: 1400px;
+}
+
+/* Left Column: Image */
+.relaxing-types-image {
+  flex: 1;
+  height: 45em;
+}
+.relaxing-types-image img {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+/* Right Column: Content */
+.relaxing-types-content {
+  flex: 1;
+  text-align: left;
+}
+.relaxing-types-content h2 {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 0.5rem;
+}
+.relaxing-types-content .subtitle {
+  font-size: 18px;
+  color: #777;
+  margin-bottom: 2rem;
+}
+
+/* Cards Grid */
+.relaxing-cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+@media (min-width: 768px) {
+  .relaxing-cards {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Each Card */
+.relaxing-card {
+    flex-direction: column;
+    background-color: #f7f7f7;
+    border-radius: 10px;
+    padding: 1rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex
+;
+    gap: 1rem;
+    align-items: center;
+    text-align: center;
+}
+.relaxing-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+.card-icon {
+  flex-shrink: 0;
+  width: 50px;
+  height: 50px;
+  background-color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  color: var(--accent, #d12564);
+  transition: transform 0.3s;
+}
+.relaxing-card:hover .card-icon {
+  transform: translateY(-3px);
+}
+.card-info h3 {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0;
+  margin-bottom: 0.3rem;
+}
+.card-info .time {
+  font-size: 14px;
+  color: #777;
+  margin-bottom: 0.5rem;
+}
+.card-info .description {
+  font-size: 14px;
+  color: #555;
+  margin: 0;
+}
+
+/* CTA Block */
+.relaxing-cta {
+  text-align: center;
+  margin-top: 2rem;
+}
+.relaxing-cta p {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 1rem;
+}
+.relaxing-cta .cta-button {
+  display: inline-block;
+  text-decoration: none;
+  padding: 12px 24px;
+  background-color: var(--accent, #d12564);
+  color: #fff;
+  border-radius: 30px;
+  font-weight: 600;
+  transition: background-color 0.3s;
+}
+.relaxing-cta .cta-button i {
+  margin-right: 0.5rem;
+}
+.relaxing-cta .cta-button:hover {
+  background-color: #a81b4f;
+}
+
+/* Mobile Adaptation */
+@media (max-width: 768px) {
+  .relaxing-types-container {
+    flex-direction: column;
+    text-align: center;
+  }
+  .relaxing-types-content {
+    text-align: center;
+  }
+}
+/* Price styling for the relaxing types cards */
+.relaxing-card .price {
+  font-size: 14px;
+  color: #777;
+  margin-bottom: 0.5rem;
+}
+
+/* Секция: Стъпка по стъпка */
+.step-by-step {
+  padding: 4rem 2rem;
+  background-color: #f9f9f9;
+  text-align: center;
+  position: relative;
+  /* Optionally add subtle background illustrations if desired */
+}
+
+.step-container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.step-by-step h2 {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 0.5rem;
+}
+
+.step-by-step .subtitle {
+  font-size: 18px;
+  color: #777;
+  margin-bottom: 2rem;
+}
+
+.steps-flow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+/* Each Step Block */
+.step {
+    background-color: white;
+    padding: 1rem;
+    border-radius: 8px;
+    flex: 1;
+    min-height: 180px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s;
+}
+
+.step:hover {
+  transform: translateY(-5px);
+}
+
+/* Step Header: Number and Icon */
+.step-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+.step-number {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #fff;
+  border: 2px solid var(--accent, #d12564);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: var(--accent, #d12564);
+}
+.step-icon {
+  font-size: 28px;
+  color: var(--accent, #d12564);
+  transition: transform 0.3s;
+}
+.step:hover .step-icon {
+  transform: translateY(-3px);
+}
+
+/* Step Title and Description */
+.step-title {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--dark);
+}
+.step-description {
+  font-size: 14px;
+  color: #555;
+  margin: 0;
+}
+
+/* Divider between steps */
+.step-divider {
+  flex: 0 0 auto;
+  width: 1px;
+  height: 80px;
+  background-color: #ddd;
+  align-self: center;
+}
+
+/* Responsive: Stack steps vertically on mobile */
+@media (max-width: 768px) {
+  .steps-flow {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .step-divider {
+    display: none;
+  }
+}
+/* Секция: Видове Юмейхо масаж – Ползи */
+.benefits-section {
+  padding: 4rem 2rem;
+  background-color: white; /* Light, calm background */
+  text-align: center;
+}
+
+.benefits-container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.benefits-section h2 {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--dark);
+}
+
+.benefits-subtitle {
+  font-size: 18px;
+  color: #777;
+  margin-bottom: 2rem;
+}
+
+/* Grid for Benefit Cards */
+.benefits-grid {
+  display: grid;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+@media (max-width: 1024px) {
+  .benefits-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .benefits-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Each Benefit Card */
+.benefit-card {
+  background-color: #f7f7f7;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  text-align: center;
+}
+.benefit-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+/* Benefit Icon */
+.benefit-icon {
+  width: 60px;
+  height: 60px;
+  background-color: var(--accent, #d12564);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;
+  color: #fff;
+  font-size: 28px;
+  transition: transform 0.3s;
+}
+.benefit-card:hover .benefit-icon {
+  transform: scale(1.1);
+}
+
+/* Benefit Title and Description */
+.benefit-card h3 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--dark);
+}
+.benefit-card p {
+  font-size: 14px;
+  color: #555;
+  margin: 0;
+}
+
+/* CTA Block */
+.benefits-cta {
+  margin-top: 2rem;
+}
+.benefits-cta .cta-button {
+  display: inline-block;
+  text-decoration: none;
+  padding: 12px 24px;
+  background-color: var(--accent, #d12564);
+  color: #fff;
+  border-radius: 30px;
+  font-weight: 600;
+  transition: background-color 0.3s;
+}
+.benefits-cta .cta-button:hover {
+  background-color: #a81b4f;
+}
+
   </style>
 </head>
 <body>
   <header id="header"></header>
+
+  <!-- HERO секция за Масажи -->
   <section class="hero-massages">
     <div class="hero-content">
-      <h1>ЮМЕЙХО – хармония и баланс</h1>
+      <h1>Юмейхо масаж за тялото и ума</h1>
       <div class="decorative-line"></div>
-      <p>Японска техника, която връща естественото равновесие в тялото.</p>
+      <p>Премахни стреса, възстанови енергията си и се отдай на пълен покой.</p>
       <div class="cta-group">
-        <a href="#booking" class="cta-button">Резервирай Юмейхо</a>
+        <a href="#masaji" class="primary-btn">Запази си час сега</a>
       </div>
     </div>
   </section>
 
-  <section class="benefits-section">
-    <div class="benefits-container">
-      <h2>Предимства на ЮМЕЙХО масажа</h2>
-      <p class="benefits-subtitle">Метод, който съчетава масаж, разтягане и подравняване на ставите.</p>
-      <div class="benefits-grid">
-        <div class="benefit-card">
-          <div class="benefit-icon"><i class="fa-solid fa-hand-sparkles"></i></div>
-          <h3>Корекция на стойката</h3>
-          <p>Изравнява асиметриите и облекчава болките в гърба.</p>
+<!-- Секция: Кога да избереш Юмейхо масаж? -->
+<section class="when-relax-massage">
+  <h2>Кога да избереш Юмейхо масаж?</h2>
+  <p class="subtitle">Юмейхоите масажи не са лукс, а необходима грижа за баланса между тяло и ум.</p>
+  <div class="reasons-grid">
+    <div class="reason">
+      <i class="fas fa-leaf"></i>
+      <span>Чувстваш напрежение и безпокойство</span>
+    </div>
+    <div class="reason">
+      <i class="fas fa-bed"></i>
+      <span>Проблеми със съня и безсъние</span>
+    </div>
+    <div class="reason">
+      <i class="fas fa-desktop"></i>
+      <span>Работиш на компютър по цял ден</span>
+    </div>
+    <div class="reason">
+      <i class="fas fa-heart"></i>
+      <span>Искаш просто време за себе си</span>
+    </div>
+  </div>
+</section>
+
+
+<!-- Секция: Видове Юмейхо масаж -->
+<section class="relaxing-types">
+  <div class="relaxing-types-container">
+    <!-- Лява колона: Изображение -->
+    <div class="relaxing-types-image">
+      <img src="images/yumeiho.jpg" alt="Юмейхо масаж – японска техника">
+    </div>
+    <!-- Дясна колона: Текстово съдържание с вертикални карти -->
+    <div class="relaxing-types-content">
+      <h2>Видове Юмейхо масаж</h2>
+      <p class="subtitle">Когато стресът и умората натрупат тегло – време е да си подариш грижа за тялото и ума.</p>
+      <div class="relaxing-cards">
+        <div class="relaxing-card">
+          <div class="card-icon"><i class="fas fa-droplet"></i></div>
+          <div class="card-info">
+            <h3>Ароматерапия</h3>
+            <p class="time">⏱ 60 мин</p>
+            <p class="price">💰 70 лв</p>
+            <p class="description">Комбинира нежен масаж и етерични масла за пълен телесен и умствен релакс.</p>
+          </div>
         </div>
-        <div class="benefit-card">
-          <div class="benefit-icon"><i class="fa-solid fa-child-reaching"></i></div>
-          <h3>По-гъвкаво тяло</h3>
-          <p>Нежно разтяга мускулите и увеличава обхвата на движение.</p>
+        <div class="relaxing-card">
+          <div class="card-icon"><i class="fas fa-hands"></i></div>
+          <div class="card-info">
+            <h3>Масаж на длани и ходила</h3>
+            <p class="time">⏱ 30 мин</p>
+            <p class="price">💰 30 лв</p>
+            <p class="description">Освобождава от напрежението в крайниците и носи облекчение.</p>
+          </div>
         </div>
-        <div class="benefit-card">
-          <div class="benefit-icon"><i class="fa-solid fa-heart"></i></div>
-          <h3>Повече жизненост</h3>
-          <p>Подобрява енергийния поток и усещането за лекота.</p>
+        <div class="relaxing-card">
+          <div class="card-icon"><i class="fas fa-spa"></i></div>
+          <div class="card-info">
+            <h3>Масаж за цяло тяло</h3>
+            <p class="time">⏱ 60 мин</p>
+            <p class="price">💰 90 лв</p>
+            <p class="description">Пълно отпускане и възстановяване на баланса между тяло и ум.</p>
+          </div>
         </div>
-        <div class="benefit-card">
-          <div class="benefit-icon"><i class="fa-solid fa-spa"></i></div>
-          <h3>Дълбока релаксация</h3>
-          <p>Сваля натрупания стрес и успокоява ума.</p>
+        <div class="relaxing-card">
+          <div class="card-icon"><i class="fas fa-shoe-prints"></i></div>
+          <div class="card-info">
+            <h3>Рефлексология</h3>
+            <p class="time">⏱ 30 мин</p>
+            <p class="price">💰 45 лв</p>
+            <p class="description">Стимулира ключови точки за подобряване на енергийната циркулация.</p>
+          </div>
         </div>
       </div>
+      <div class="relaxing-cta">
+        <p>Готова ли си за малко време само за себе си?</p>
+        <a href="#booking" class="cta-button">Запази Юмейхо масаж</a>
+      </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="final-cta" style="background: url(images/last-cta.jpg) center / cover no-repeat;">
-    <div class="cta-overlay"></div>
-    <div class="cta-container">
-      <h2>Почувствай японското изкуство на баланса</h2>
-      <p>Запази своята терапия и усети промяната още след първата сесия.</p>
-      <a href="#booking" class="cta-button">Запази ЮМЕЙХО масаж</a>
+
+<!-- Секция: Стъпка по стъпка – Как протича релакс масаж при нас? -->
+<section class="step-by-step">
+  <div class="step-container">
+    <h2>Как протича релакс масаж при нас?</h2>
+    <p class="subtitle">От влизането до последната минута – всяка стъпка е грижа за теб.</p>
+    <div class="steps-flow">
+      <!-- Step 1 -->
+      <div class="step">
+        <div class="step-header">
+          <div class="step-number">1</div>
+          <div class="step-icon"><i class="fas fa-couch"></i></div>
+        </div>
+        <h3 class="step-title">Пристигане в уютна обстановка</h3>
+        <p class="step-description">Мека светлина, Юмейхоа музика и ароматни нотки те въвеждат в спокойствие.</p>
+      </div>
+      <div class="step-divider"></div>
+      <!-- Step 2 -->
+      <div class="step">
+        <div class="step-header">
+          <div class="step-number">2</div>
+          <div class="step-icon"><i class="fas fa-bottle-droplet"></i></div>
+        </div>
+        <h3 class="step-title">Избор на масло и зона</h3>
+        <p class="step-description">Терапевтът ти предлага масла и определя зоната за специално внимание.</p>
+      </div>
+      <div class="step-divider"></div>
+      <!-- Step 3 -->
+      <div class="step">
+        <div class="step-header">
+          <div class="step-number">3</div>
+          <div class="step-icon"><i class="fas fa-spa"></i></div>
+        </div>
+        <h3 class="step-title">Масаж от сертифициран терапевт</h3>
+        <p class="step-description">Отдаваш се на пълен покой в тиха и професионална атмосфера.</p>
+      </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="seo-text">
-    <div class="seo-container">
-      <h2>Как действа ЮМЕЙХО масажът</h2>
-      <p class="seo-intro">
-        Чрез специфични похвати и подравняване на ставите ЮМЕЙХО възстановява хармонията между мускули и скелет.
+  
+  <!-- Секция: Видове Юмейхо масаж – Ползи -->
+<section class="benefits-section">
+  <div class="benefits-container">
+    <h2>Защо релакс масажът е полезен?</h2>
+    <p class="benefits-subtitle">
+      Открий ползите за тялото и ума, които ще ти донесат спокойствие и баланс.
+    </p>
+    <div class="benefits-grid">
+      <div class="benefit-card">
+        <div class="benefit-icon"><i class="fas fa-leaf"></i></div>
+        <h3>Понижаване на стреса</h3>
+        <p>Успокоява нервната система и връща вътрешното равновесие.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon"><i class="fas fa-bed"></i></div>
+        <h3>Подобряване на съня</h3>
+        <p>Подготвя тялото и ума за дълбок, спокоен сън.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon"><i class="fas fa-user-md"></i></div>
+        <h3>Отпускане на мускулите</h3>
+        <p>Намалява напрежението в гърба, врата и раменете.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon"><i class="fas fa-brain"></i></div>
+        <h3>Повишаване на фокуса</h3>
+        <p>Подобрява кръвообращението и изчиства ума.</p>
+      </div>
+    </div>
+    <div class="benefits-cta">
+      <a href="#booking" class="cta-button">Запази си час</a>
+    </div>
+  </div>
+</section>
+  
+<section class="testimonials relaxing-testimonials">
+  <h2>Какво казват жените, избрали Юмейхоите ни масажи?</h2>
+  <p class="section-subtitle">Истински думи от клиентки, които откриха спокойствието чрез нашите терапии</p>
+  <div class="slider-container">
+    <button class="slider-arrow left-arrow"><i class="fas fa-chevron-left"></i></button>
+    <div class="slider-wrapper">
+      <div class="testimonial-slider">
+
+        <!-- Отзив 1 -->
+        <div class="testimonial">
+          <p>„Работя на компютър по 10 часа на ден и напрежението в тялото ми беше постоянно. Още след първия масаж се почувствах отпусната и лека – не вярвах, че ефектът ще е толкова силен.“</p>
+          <div class="user-info">
+            <strong>Деси, 31 г. – проектен мениджър</strong>
+            <span class="stars">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </span>
+          </div>
+        </div>
+
+        <!-- Отзив 2 -->
+        <div class="testimonial">
+          <p>"Отидох да пробвам масаж с ароматерапия, защото имах проблеми със съня. Всяка процедура ми действа като рестарт – спя по-добре, чувствам се спокойна и балансирана“</p>
+          <div class="user-info">
+            <strong>Ралица, 39 г. – архитект</strong>
+            <span class="stars">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+            </span>
+          </div>
+        </div>
+
+        <!-- Отзив 3 -->
+        <div class="testimonial">
+          <p>„Никога не съм си мислила, че масаж на ходила може да ми помогне за концентрацията. Но след няколко процедури се чувствам по-осъзната, със свежа енергия"</p>
+          <div class="user-info">
+            <strong>Симона, 27 г. – UX дизайнер</strong>
+            <span class="stars">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </span>
+          </div>
+        </div>
+
+        <!-- Отзив 4 -->
+        <div class="testimonial">
+          <p>„Винаги съм била скептична към такива процедури, но Юмейхоият масаж тук ме спечели. Атмосферата е тиха, маслата ухаят страхотно, а терапевтката беше много внимателна“</p>
+          <div class="user-info">
+            <strong>Таня, 36 г. – психолог</strong>
+            <span class="stars">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <button class="slider-arrow right-arrow"><i class="fas fa-chevron-right"></i></button>
+  </div>
+</section>
+<section class="final-cta" style="background: url(images/last-cta-massage.jpg) center / cover no-repeat;">
+  <div class="cta-overlay"></div>
+  <div class="cta-container">
+    <h2>Открий силата на Юмейхо</h2>
+    <p>Юмейхо терапията възстановява енергийния баланс и подравнява стойката.</p>
+    <a href="#booking" class="cta-button">Запази час за Юмейхо масаж</a>
+  </div>
+</section>
+<section class="seo-text">
+  <div class="seo-container">
+    <h2>Какви резултати да очакваш и как работят нашите терапии</h2>
+    <p class="seo-intro">
+      В DARA Body Line вярваме, че всяка жена заслужава да се чувства уверена в тялото си. Затова сме създали комбинация от модерни технологии и доказани методи – за реални резултати без болка и дискомфорт.
+    </p>
+    <button class="seo-toggle">Прочети още</button>
+    <div class="seo-content">
+      <h3>Нашите терапии в детайли</h3>
+      <p>
+        Нашите топ терапии като Roll Shaper, EMS Sculpt, Кавитация, RF лифтинг и антицелулитните масажи са насочени към оформяне на силуета, редуциране на целулит, изграждане на мускулен тонус, подобряване на кръвообращението и лимфния дренаж, както и стимулиране на естествените процеси на тялото.
+      </p>
+      <h3>Как работят процедурите</h3>
+      <p>
+        Чрез EMS Sculpt се създават над 20 000 мускулни контракции в рамките на 30 минути – това води до ускорено горене на мазнини и изграждане на мускул. Roll Shaper активира лимфната система и намалява обиколките още след първите процедури. Антицелулитният масаж комбинира ръчни техники с целенасочено действие върху мастните натрупвания, подобрявайки текстурата на кожата.
+      </p>
+      <h3>Препоръчителен брой процедури</h3>
+      <p>
+        Макар първите резултати да се виждат още след няколко посещения, оптималният ефект се постига при план от 5 до 10 процедури. За максимален резултат препоръчваме комбиниран подход и консултация с нашия екип.
       </p>
     </div>
-  </section>
-
+  </div>
+</section>
+  <!-- Footer Section -->
   <footer class="footer" id="footer"></footer>
   <script src="main.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+  const seoToggle = document.querySelector(".seo-toggle");
+  const seoContent = document.querySelector(".seo-content");
+
+  seoToggle.addEventListener("click", function() {
+    seoContent.classList.toggle("active");
+    if (seoContent.classList.contains("active")) {
+      seoToggle.innerHTML = 'Скрий текста';
+      // Скрол към съдържанието при разгръщане
+      seoContent.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      seoToggle.innerHTML = 'Прочети още';
+      // Скрол към бутона при сгъване
+      seoToggle.scrollIntoView({ behavior: 'smooth' });
+    }
+  });
+});
+    (function() {
+      const sliderWrapper = document.querySelector('.slider-wrapper');
+      const slider = document.querySelector('.testimonial-slider');
+      let slides = document.querySelectorAll('.testimonial');
+      const leftArrow = document.querySelector('.left-arrow');
+      const rightArrow = document.querySelector('.right-arrow');
+  
+      // Клонираме първата и последната карта
+      const firstClone = slides[0].cloneNode(true);
+      const lastClone = slides[slides.length - 1].cloneNode(true);
+  
+      // Добавяме клонираните елементи
+      slider.appendChild(firstClone);
+      slider.insertBefore(lastClone, slides[0]);
+  
+      // Обновяваме списъка със слайдове
+      slides = document.querySelectorAll('.testimonial');
+  
+      // Задаваме началния индекс на първия "реален" слайд
+      let currentIndex = 1;
+      let slideWidth = sliderWrapper.offsetWidth;
+      slider.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+  
+      function updateSlider(withTransition = true) {
+        // Ако трябва да е с плавен преход, задаваме transition
+        slider.style.transition = withTransition ? 'transform 0.5s ease' : 'none';
+        slider.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+      }
+  
+      rightArrow.addEventListener('click', () => {
+        if (currentIndex >= slides.length - 1) return;
+        currentIndex++;
+        updateSlider();
+      });
+  
+      leftArrow.addEventListener('click', () => {
+        if (currentIndex <= 0) return;
+        currentIndex--;
+        updateSlider();
+      });
+  
+      // След приключване на прехода проверяваме за клонирани слайдове
+      slider.addEventListener('transitionend', () => {
+        // Ако сме на клонирания първи слайд (в края)
+        if (slides[currentIndex].isEqualNode(firstClone)) {
+          slider.style.transition = 'none';
+          currentIndex = 1;
+          slider.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+        }
+        // Ако сме на клонирания последен слайд (в началото)
+        if (slides[currentIndex].isEqualNode(lastClone)) {
+          slider.style.transition = 'none';
+          currentIndex = slides.length - 2;
+          slider.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+        }
+      });
+  
+      // Актуализиране на ширината при resize
+      window.addEventListener('resize', () => {
+        slideWidth = sliderWrapper.offsetWidth;
+        updateSlider(false);
+      });
+    })();
+  </script>  
 </body>
 </html>
